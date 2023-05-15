@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Rubik",sans-serif;
+}
+body{
+    height: 100%;
+    background: linear-gradient(to right, #2e2a42 50%, #edc7c7 50%)fixed;
+}
+.container{
+    width: 90vmin;
+    background-color: white;
+    padding: 50px 40px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    box-shadow: 0px 20px 35px rgba(60, 60, 60, 0.2);
+}
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper input{
+    width: 60%;
+    padding: 10px 7px;
+    border-radius: 3px;
+    border: 1px solid #201d2e;
+}
+.wrapper button{
+    width: 30%;
+    background-color: #201d2e;
+    outline: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.container p{
+    line-height: 35px;
+    text-align: justify;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <input type="text" id="text-to-search" placeholder="Enter text to Search">
+            <button type="button" onclick="search()">Search</button>
+        </div>
+        <p id="pargraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, esse nulla. Inventore optio voluptatibus, est voluptates quaerat delectus! Dolorem distinctio quisquam eum vero laborum quod facere aperiam voluptate possimus, laboriosam iusto. Eaque illum explicabo commodi ullam ad sint reiciendis deserunt, maxime facilis id quasi in, fugiat sed dicta facere! Obcaecati 998lo.
+        </p>
+    </div>
+    <script>
+        function search(){
+            let textToSearch = document.getElementById("text-to-search").value;
+            let pargraph = document.getElementById("pargraph");
+            // textToSearch = textToSearch.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+            let pattern = new RegExp(`${textToSearch}`, "gi");
+            pargraph.innerHTML = pargraph.textContent.replace(pattern, match => `<mark>${match}</mark>`)
+}
+    </script>
+</body>
+</html>
